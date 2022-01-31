@@ -8,6 +8,8 @@ import (
 	"net/http"
 	"strconv"
 	"strings"
+
+	"github.com/OctavianUrsu/go-discord-cryptobot/config"
 )
 
 func getPrices(m string) string {
@@ -21,7 +23,7 @@ func getPrices(m string) string {
 
 	crypto := strings.ToUpper(m[1:])
 	fmt.Printf("Getting price for %v\n", crypto)
-	url := "https://api.binance.com/api/v3/ticker/price?symbol=" + crypto + "USDT"
+	url := "https://api.binance.com/api/v3/ticker/price?symbol=" + crypto + config.Currency
 
 	resp, err := http.Get(url)
 	if err != nil {

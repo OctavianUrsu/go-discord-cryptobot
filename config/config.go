@@ -7,13 +7,13 @@ import (
 )
 
 type configStruct struct {
-	Token     string `json:"Token"`
 	BotPrefix string `json:"BotPrefix"`
+	Currency  string `json:"Currency"`
 }
 
 var (
-	Token     string // store our token from json
 	BotPrefix string // store our bot prefix from json
+	Currency  string
 	config    *configStruct
 )
 
@@ -38,7 +38,7 @@ func ReadConfig() error {
 	fmt.Println("Config was copied succesfully!")
 
 	// Store the config variables in separate global variables
-	Token = config.Token
+	Currency = config.Currency
 	BotPrefix = config.BotPrefix
 
 	//If there isn't any error we will return nil.

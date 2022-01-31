@@ -2,16 +2,22 @@ package bot
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/OctavianUrsu/go-discord-cryptobot/config"
 	"github.com/bwmarrin/discordgo"
 )
 
 var BotId string
+var Token string
 
 func Start() {
 	//creating new bot session
-	goBot, err := discordgo.New("Bot " + config.Token)
+	Token = os.Getenv("TOKEN")
+	if Token == "" {
+		fmt.Println("Token must be set")
+	}
+	goBot, err := discordgo.New("Bot " + Token)
 
 	if err != nil {
 		fmt.Println(err.Error())

@@ -1,1 +1,0 @@
-worker: bin/go-discord-cryptobot

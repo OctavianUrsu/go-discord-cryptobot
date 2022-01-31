@@ -27,6 +27,7 @@ func getPrices(m string) string {
 	if err != nil {
 		fmt.Println("Error sending request to server!")
 	}
+	defer resp.Body.Close()
 
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
